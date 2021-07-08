@@ -2,14 +2,14 @@ package my.sample.app;
 
 import java.util.*;
 
+/**
+ * This class, to count the number of duplicated words,
+ * connects all the necessary classes and runs their methods for execution.
+ */
 public class WordCounterApp {
-
     public static final String FILE_NAME = "C://WorkTasks//bigNote.txt";
-    /**
-     * Count the number of duplicate words in a line
-     */
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         FromFileReader fromFileReader = new FromFileReader();
         LineConverter lineConverter = new LineConverter();
         DuplicateCounter duplicateCounter = new DuplicateCounter();

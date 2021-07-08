@@ -6,14 +6,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class reads data from the input file
+ */
 public class FromFileReader {
-    /**
-     * Read information from a file
-     */
-    public List<String> loadFromFile(String fileName) {
-        String line;
-        List<String> wordsList = new ArrayList<>();
+    String line;
+    List<String> wordsList = new ArrayList<>();
 
+    public List<String> loadFromFile(String fileName) {
         try (FileReader fileReader = new FileReader(fileName);
              BufferedReader reader = new BufferedReader(fileReader)) {
             while ((line = reader.readLine()) != null) {
