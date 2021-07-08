@@ -24,6 +24,7 @@ public class WordCounterApp {
             }
         }
 
+
         System.out.println();
         System.out.println("List of duplicates and their number: " + wordCountMap);
         System.out.println();
