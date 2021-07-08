@@ -1,18 +1,16 @@
-package my.sample.app;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
-public class UtilsTester {
+public class AppTestCases {
     FromFileReader fromFileReader = new FromFileReader();
     LineConverter lineConverter = new LineConverter();
-    DuplicateCounter duplicateCounter = new DuplicateCounter();
+    my.sample.app.DuplicateCounter duplicateCounter = new my.sample.app.DuplicateCounter();
     HashMap<String, Integer> wordCountMap = new HashMap<>();
 
     @Test
