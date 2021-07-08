@@ -10,12 +10,12 @@ import static org.junit.Assert.assertEquals;
 public class AppTestCases {
     FromFileReader fromFileReader = new FromFileReader();
     LineConverter lineConverter = new LineConverter();
-    my.sample.app.DuplicateCounter duplicateCounter = new my.sample.app.DuplicateCounter();
+    DuplicateCounter duplicateCounter = new DuplicateCounter();
     HashMap<String, Integer> wordCountMap = new HashMap<>();
 
     @Test
     public void loadFromFile() {
-        final String FILE_NAME = "C://WorkTasks//WordCounter//TestFile.txt";
+        final String FILE_NAME = "C://WorkTasks//WordCounter//MavenWordCounter//TestFile.txt";
         List<String> linesFromFile = fromFileReader.loadFromFile(FILE_NAME);
         assertEquals(6, linesFromFile.size());
     }

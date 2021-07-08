@@ -5,12 +5,12 @@ import java.util.*;
  * connects all the necessary classes and runs their methods for execution.
  */
 public class WordCounterApp {
-    public static final String FILE_NAME = "C://WorkTasks//WordCounter//bigNote.txt";
+    public static final String FILE_NAME = "C://WorkTasks//WordCounter//MavenWordCounter//bigNote.txt";
 
     public static void main(String[] args) {
-        my.sample.app.FromFileReader fromFileReader = new my.sample.app.FromFileReader();
+        FromFileReader fromFileReader = new FromFileReader();
         LineConverter lineConverter = new LineConverter();
-        my.sample.app.DuplicateCounter duplicateCounter = new my.sample.app.DuplicateCounter();
+        DuplicateCounter duplicateCounter = new DuplicateCounter();
         HashMap<String, Integer> wordCountMap = new HashMap<>();
 
         List<String> linesFromFile = fromFileReader.loadFromFile(FILE_NAME);
@@ -21,8 +21,6 @@ public class WordCounterApp {
                 duplicateCounter.countWords(words, wordCountMap);
             }
         }
-
-
         System.out.println();
         System.out.println("List of duplicates and their number: " + wordCountMap);
         System.out.println();
