@@ -7,7 +7,7 @@ import java.util.*;
  * connects all the necessary classes and runs their methods for execution.
  */
 public class WordCounterApp {
-    public static final String FILE_NAME = "C://WorkTasks//bigNote.txt";
+    public static final String FILE_NAME = "C://WorkTasks//WordCounter//bigNote.txt";
 
     public static void main(String[] args) {
         FromFileReader fromFileReader = new FromFileReader();

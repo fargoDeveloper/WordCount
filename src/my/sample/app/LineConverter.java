@@ -1,5 +1,6 @@
 package my.sample.app;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
  * This class extract words from the input file
  */
 public class LineConverter {
-    List<String> wordsList = new LinkedList<>();
+    List<String> wordsList = new ArrayList<>();
     List<String> convertedList;
 
     public List<String> extractWords(String linesFromFile) {
@@ -17,7 +18,7 @@ public class LineConverter {
         line = line.toLowerCase();
 
         // remove extra characters in to line
-        line = line.replaceAll("[//\\()?–—:_!@~`#№$%^&*=\'\"\t\b\r.\\+,;\n{}<>]+", "");
+        line = line.replaceAll("[//\\()?\\–\\—:_!@~`#№$%^&*=\'\"\t\b\r.\\+,;\n{}<>]+", "");
         line = line.replaceAll("[\\xC2\\xA0]+", " ");
         convertedList = Arrays.asList(line.split(" "));
 
