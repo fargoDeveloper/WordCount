@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -7,11 +8,19 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class AppTestCases {
-    FromFileReader fromFileReader = new FromFileReader();
-    LineConverter lineConverter = new LineConverter();
-    DuplicateCounter duplicateCounter = new DuplicateCounter();
-    HashMap<String, Integer> wordCountMap = new HashMap<>();
+public class TestWordCounterApp {
+    private FromFileReader fromFileReader;
+    private LineConverter lineConverter;
+    private DuplicateCounter duplicateCounter;
+    private HashMap<String, Integer> wordCountMap;
+
+    @Before
+    public void initObjects(){
+        fromFileReader = new FromFileReader();
+        lineConverter = new LineConverter();
+        duplicateCounter = new DuplicateCounter();
+        wordCountMap = new HashMap<>();
+    }
 
     @Test
     public void loadFromFile() {
