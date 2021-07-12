@@ -1,15 +1,16 @@
-package my.sample.app;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import my.sample.app.DuplicateCounter;
+import my.sample.app.FromFileReader;
+import my.sample.app.LineConverter;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestWordCounterApp {
+public class WordCounterAppTest {
     FromFileReader fromFileReader = new FromFileReader();
     LineConverter lineConverter = new LineConverter();
     DuplicateCounter duplicateCounter = new DuplicateCounter();
