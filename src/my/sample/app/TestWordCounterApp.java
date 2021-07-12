@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class AppTestCases {
+public class TestWordCounterApp {
     FromFileReader fromFileReader = new FromFileReader();
     LineConverter lineConverter = new LineConverter();
     DuplicateCounter duplicateCounter = new DuplicateCounter();
