@@ -23,6 +23,7 @@ public class WordCounterAppTest {
         assertEquals(6, linesFromFile.size());
     }
 
+
     @Test
     public void getConvertLine() {
         List<String> linesFromFile = Arrays.asList("Жили, ! себе -дед да; баба. Дед говорит бабе");
