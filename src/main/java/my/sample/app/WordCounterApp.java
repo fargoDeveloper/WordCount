@@ -7,24 +7,33 @@ import java.util.*;
  * connects all the necessary classes and runs their methods for execution.
  */
 public class WordCounterApp {
-    public static String fileName = "C://WorkTasks//WordCounter//1.txt";
+    public static String fileName = "C://WorkTasks//WordCounter//file.txt";
 
     public static void main(String[] args) {
+       printDuplicates(wordCountApp(fileName));
+    }
+
+    public static HashMap<String, Integer> wordCountApp(String fileName){
         FromFileReader fromFileReader = new FromFileReader();
         LineConverter lineConverter = new LineConverter();
         DuplicateCounter duplicateCounter = new DuplicateCounter();
+
+        List<String> words;
         HashMap<String, Integer> wordCountMap = new HashMap<>();
 
         List<String> linesFromFile = fromFileReader.loadFromFile(fileName);
 
         for (String line : linesFromFile) {
             if (!line.isEmpty()) {
-                List<String> words = lineConverter.extractWords(line);
+                words = lineConverter.extractWords(line);
                 duplicateCounter.countWords(words, wordCountMap);
                 words.clear();
             }
         }
+        return wordCountMap;
+    }
 
+    public static void printDuplicates(HashMap<String, Integer> wordCountMap){
         System.out.println();
         System.out.println("List of duplicates and their number: " + wordCountMap);
         System.out.println();

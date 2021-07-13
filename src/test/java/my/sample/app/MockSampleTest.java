@@ -1,4 +1,5 @@
-import my.sample.app.FromFileReader;
+package my.sample.app;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -30,9 +31,5 @@ public class MockSampleTest {
         final String FILE_NAME = "fdhfdhfshdhxt";
         List<String> linesFromFile = fromFileReader.loadFromFile(FILE_NAME);
         assertEquals(2, linesFromFile.size());
-
-
-
     }
-
 }

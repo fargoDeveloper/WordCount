@@ -1,35 +1,16 @@
+package my.sample.app;
+
+import org.junit.Test;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import my.sample.app.DuplicateCounter;
-import my.sample.app.FromFileReader;
-import my.sample.app.LineConverter;
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
-public class WordCounterAppTest {
-    FromFileReader fromFileReader = new FromFileReader();
-    LineConverter lineConverter = new LineConverter();
+public class DuplicationCounterTest {
     DuplicateCounter duplicateCounter = new DuplicateCounter();
     HashMap<String, Integer> wordCountMap = new HashMap<>();
-
-    @Test
-    public void loadFromFile() {
-        final String FILE_NAME = "C://WorkTasks//WordCounter//TestFile.txt";
-        List<String> linesFromFile = fromFileReader.loadFromFile(FILE_NAME);
-        assertEquals(6, linesFromFile.size());
-    }
-
-
-    @Test
-    public void getConvertLine() {
-        List<String> linesFromFile = Arrays.asList("Жили, ! себе -дед да; баба. Дед говорит бабе");
-        List<String> wordsList = lineConverter.extractWords(linesFromFile.get(0));
-        assertEquals(8, wordsList.size());
-    }
 
     @Test
     public void getDuplicateWords() {
