@@ -19,8 +19,8 @@ public class FromFileReader {
             while ((line = reader.readLine()) != null) {
                 wordsList.add(line);
             }
-        } catch (IOException exc) {
-            exc.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
         return wordsList;
     }

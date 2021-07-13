@@ -1,5 +1,6 @@
 package my.sample.app;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -9,8 +10,14 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class DuplicationCounterTest {
-    DuplicateCounter duplicateCounter = new DuplicateCounter();
-    HashMap<String, Integer> wordCountMap = new HashMap<>();
+    DuplicateCounter duplicateCounter;
+    HashMap<String, Integer> wordCountMap;
+
+    @Before
+    public void initObjects() {
+        duplicateCounter = new DuplicateCounter();
+        wordCountMap = new HashMap<>();
+    }
 
     @Test
     public void getDuplicateWords() {

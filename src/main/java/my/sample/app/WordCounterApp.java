@@ -1,5 +1,9 @@
 package my.sample.app;
 
+import java.io.File;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Paths;
 import java.util.*;
 
 /**
@@ -7,13 +11,17 @@ import java.util.*;
  * connects all the necessary classes and runs their methods for execution.
  */
 public class WordCounterApp {
-    public static String fileName = "C://WorkTasks//WordCounter//file.txt";
+    public static void main(String[] args) throws URISyntaxException {
+        URL url = WordCounterApp.class.getClassLoader().getResource("file.txt");
+        File file = Paths.get(url.toURI()).toFile();
+        String fileName = file.getAbsolutePath();
 
-    public static void main(String[] args) {
-       printDuplicates(wordCountApp(fileName));
+        printDuplicates(wordCountApp(fileName));
     }
 
-    public static HashMap<String, Integer> wordCountApp(String fileName){
+    public static HashMap<String, Integer> wordCountApp(String fileName) {
+
+
         FromFileReader fromFileReader = new FromFileReader();
         LineConverter lineConverter = new LineConverter();
         DuplicateCounter duplicateCounter = new DuplicateCounter();
@@ -33,7 +41,7 @@ public class WordCounterApp {
         return wordCountMap;
     }
 
-    public static void printDuplicates(HashMap<String, Integer> wordCountMap){
+    public static void printDuplicates(HashMap<String, Integer> wordCountMap) {
         System.out.println();
         System.out.println("List of duplicates and their number: " + wordCountMap);
         System.out.println();

@@ -1,5 +1,6 @@
 package my.sample.app;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -8,7 +9,12 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class LineConverterTest {
-    LineConverter lineConverter = new LineConverter();
+    LineConverter lineConverter;
+
+    @Before
+    public void initObjects() {
+        lineConverter = new LineConverter();
+    }
 
     @Test
     public void getConvertLine() {
