@@ -1,6 +1,7 @@
 package my.sample.app;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -37,5 +38,15 @@ public class FromFileReaderTest {
 
         List<String> linesFromFile = fromFileReader.loadFromFile(fileName);
         assertEquals(0, linesFromFile.size());
+    }
+
+    @Ignore
+    public void loadFromNonExistFile() throws URISyntaxException {
+        URL url = getClass().getClassLoader().getResource("someFile.txt");
+        File file = Paths.get(url.toURI()).toFile();
+        String fileName = file.getAbsolutePath();
+
+        List<String> linesFromFile = fromFileReader.loadFromFile(fileName);
+//        assertEquals();
     }
 }
