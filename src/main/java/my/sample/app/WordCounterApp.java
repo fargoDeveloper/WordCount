@@ -16,11 +16,11 @@ public class WordCounterApp {
         File file = Paths.get(url.toURI()).toFile();
         String fileName = file.getAbsolutePath();
 
-        printDuplicates(wordCountApp(fileName));
+        WordCounterApp app = new WordCounterApp();
+        app.printDuplicates(app.wordCountApp(fileName));
     }
 
-    public static HashMap<String, Integer> wordCountApp(String fileName) {
-
+    public HashMap<String, Integer> wordCountApp(String fileName) {
 
         FromFileReader fromFileReader = new FromFileReader();
         LineConverter lineConverter = new LineConverter();
@@ -41,7 +41,7 @@ public class WordCounterApp {
         return wordCountMap;
     }
 
-    public static void printDuplicates(HashMap<String, Integer> wordCountMap) {
+    public void printDuplicates(HashMap<String, Integer> wordCountMap) {
         System.out.println();
         System.out.println("List of duplicates and their number: " + wordCountMap);
         System.out.println();
