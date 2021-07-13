@@ -16,6 +16,8 @@ public class WordCounterApp {
         File file = Paths.get(url.toURI()).toFile();
         String fileName = file.getAbsolutePath();
 
+        System.out.println("Starting application.");
+
         WordCounterApp app = new WordCounterApp();
         app.printDuplicates(app.wordCountApp(fileName));
     }
