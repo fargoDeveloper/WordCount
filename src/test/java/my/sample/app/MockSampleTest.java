@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class MockSampleTest {
     }
 
     @Test
-    public void loadFromFile(){
+    public void loadFromFile() throws FileNotFoundException {
         List<String> list = new ArrayList<>();
         list.add("a");
         list.add("b");

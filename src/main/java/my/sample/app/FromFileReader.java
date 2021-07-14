@@ -1,6 +1,7 @@
 package my.sample.app;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class FromFileReader {
     String line;
     List<String> wordsList = new ArrayList<>();
 
-    public List<String> loadFromFile(String fileName) {
+    public List<String> loadFromFile(String fileName) throws FileNotFoundException {
         try (FileReader fileReader = new FileReader(fileName);
              BufferedReader reader = new BufferedReader(fileReader)) {
             while ((line = reader.readLine()) != null) {
