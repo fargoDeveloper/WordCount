@@ -1,9 +1,6 @@
 package my.sample.app;
 
-import java.io.File;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Paths;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -11,27 +8,26 @@ import java.util.*;
  * connects all the necessary classes and runs their methods for execution.
  */
 public class WordCounterApp {
-    public static void main(String[] args) throws URISyntaxException {
-        URL url = WordCounterApp.class.getClassLoader().getResource("file.txt");
-        File file = Paths.get(url.toURI()).toFile();
-        String fileName = file.getAbsolutePath();
+    public static void main(String[] args) throws IOException {
+        String fileName = ("file.txt");
 
-        System.out.println("Starting application.");
+        System.out.println("-------------------------------------");
+        System.out.println("----- Starting application -----");
+        System.out.println("-------------------------------------");
 
         WordCounterApp app = new WordCounterApp();
         app.printDuplicates(app.wordCountApp(fileName));
     }
 
-    public HashMap<String, Integer> wordCountApp(String fileName) {
-
-        FromFileReader fromFileReader = new FromFileReader();
+    public HashMap<String, Integer> wordCountApp(String fileName) throws IOException {
+        TextReader textReader = new TextReader();
         LineConverter lineConverter = new LineConverter();
         DuplicateCounter duplicateCounter = new DuplicateCounter();
 
         List<String> words;
         HashMap<String, Integer> wordCountMap = new HashMap<>();
 
-        List<String> linesFromFile = fromFileReader.loadFromFile(fileName);
+        List<String> linesFromFile = textReader.loadFromResource(fileName);
 
         for (String line : linesFromFile) {
             if (!line.isEmpty()) {

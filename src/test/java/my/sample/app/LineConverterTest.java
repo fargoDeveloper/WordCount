@@ -3,12 +3,16 @@ package my.sample.app;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.StringReader;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class LineConverterTest {
+
     LineConverter lineConverter;
 
     @Before
@@ -17,9 +21,12 @@ public class LineConverterTest {
     }
 
     @Test
-    public void getConvertLine() {
-        List<String> linesFromFile = Arrays.asList("Жили, ! себе -дед да; баба. Дед говорит бабе");
-        List<String> wordsList = lineConverter.extractWords(linesFromFile.get(0));
+    public void getConvertLine() throws IOException {
+        String testString = "Жили, ! себе -дед да; баба. Дед говорит бабе";
+        Reader reader = new StringReader(testString);
+        BufferedReader buffer = new BufferedReader(reader);
+
+        List<String> wordsList = lineConverter.extractWords(buffer.readLine());
         assertEquals(8, wordsList.size());
     }
 }

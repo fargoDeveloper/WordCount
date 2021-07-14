@@ -3,13 +3,15 @@ package my.sample.app;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
 public class DuplicationCounterTest {
+
     DuplicateCounter duplicateCounter;
     HashMap<String, Integer> wordCountMap;
 
@@ -21,16 +23,13 @@ public class DuplicationCounterTest {
 
     @Test
     public void getDuplicateWords() {
-        List<String> wordsList = new ArrayList<>();
+
+        List<String> wordsList;
         HashMap<String, Integer> wordCount;
-        wordsList.add("жили");
-        wordsList.add("жили");
-        wordsList.add("себе");
-        wordsList.add("дед");
-        wordsList.add("да");
-        wordsList.add("баба");
-        wordsList.add("дед");
-        wordsList.add("говорит");
+
+        Stream<String> stringStream = Stream.of("жили", "жили", "себе", "дед", "да", "баба", "дед", "говорит");
+        wordsList = stringStream.collect(Collectors.toList());
+
         wordCount = duplicateCounter.countWords(wordsList, wordCountMap);
         assertEquals((Object) 2, wordCount.get("жили"));
         assertEquals((Object) 2, wordCount.get("дед"));
