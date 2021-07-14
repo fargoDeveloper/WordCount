@@ -1,6 +1,6 @@
 package my.sample.app;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -8,8 +8,8 @@ import java.util.*;
  * connects all the necessary classes and runs their methods for execution.
  */
 public class WordCounterApp {
-    public static void main(String[] args) throws FileNotFoundException {
-        String fileName = ("src/main/resources/file.txt");
+    public static void main(String[] args) throws IOException {
+        String fileName = ("file.txt");
 
         System.out.println("-------------------------------------");
         System.out.println("----- Starting application -----");
@@ -19,15 +19,15 @@ public class WordCounterApp {
         app.printDuplicates(app.wordCountApp(fileName));
     }
 
-    public HashMap<String, Integer> wordCountApp(String fileName) throws FileNotFoundException {
-        FromFileReader fromFileReader = new FromFileReader();
+    public HashMap<String, Integer> wordCountApp(String fileName) throws IOException {
+        TextReader textReader = new TextReader();
         LineConverter lineConverter = new LineConverter();
         DuplicateCounter duplicateCounter = new DuplicateCounter();
 
         List<String> words;
         HashMap<String, Integer> wordCountMap = new HashMap<>();
 
-        List<String> linesFromFile = fromFileReader.loadFromFile(fileName);
+        List<String> linesFromFile = textReader.loadFromResource(fileName);
 
         for (String line : linesFromFile) {
             if (!line.isEmpty()) {

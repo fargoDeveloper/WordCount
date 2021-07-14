@@ -6,8 +6,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.io.FileNotFoundException;
-
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,7 +24,7 @@ public class WordCounterAppMainTest {
     DuplicateCounter duplicateCounter;
 
     @Mock
-    private FromFileReader fromFileReader;
+    private TextReader textReader;
 
     @Before
     public void setUp(){
@@ -34,7 +33,7 @@ public class WordCounterAppMainTest {
     }
 
     @Test
-    public void loadFromFile() throws FileNotFoundException {
+    public void loadFromFile() throws IOException {
 
         List<String> listFromFile;
         List<String> words;
@@ -45,9 +44,9 @@ public class WordCounterAppMainTest {
                 "— Ты, баба, пеки пироги, а я запрягу сани да поеду за рыбой.");
         listFromFile = stringStream.collect(Collectors.toList());
 
-        when(fromFileReader.loadFromFile(any())).thenReturn(listFromFile);
+        when(textReader.loadFromFile(any())).thenReturn(listFromFile);
         final String FILE_NAME = "fdhfdhfshdhxt";
-        List<String> linesFromFile = fromFileReader.loadFromFile(FILE_NAME);
+        List<String> linesFromFile = textReader.loadFromFile(FILE_NAME);
 
         for (String line : linesFromFile) {
             if (!line.isEmpty()) {
